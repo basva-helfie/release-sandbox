@@ -8,7 +8,7 @@ on:
       environment:
         description: Target environment
         type: choice
-        options: [production, beta]
+        options: [production, beta, staging]
         default: production
 
 jobs:
