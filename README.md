@@ -7,3 +7,5 @@ owner: Basva
 # release-sandbox
 
 `deploy.yml` pretends to deploy: it runs in the `beta` or `production` environment, so GitHub records a Deployment, and prints what it would have shipped. Safe to delete.
+
+Staging deploys are cut into release trains by Backstage.
