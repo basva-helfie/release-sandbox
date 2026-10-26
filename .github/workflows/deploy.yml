@@ -1,0 +1,22 @@
+# Fake deploy for testing the Backstage release flow. Running a job in an environment makes
+# GitHub record a Deployment, exactly like a real pipeline would.
+name: deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        type: choice
+        options: [production, beta]
+        default: production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'production' }}
+    steps:
+      - name: Deploy
+        env:
+          TARGET: ${{ inputs.environment || 'production' }}
+        run: echo "deployed $GITHUB_REF_NAME ($GITHUB_SHA) to $TARGET"
